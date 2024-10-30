@@ -26,3 +26,18 @@ else
 fi
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $Logs
 validate $? "Copied MongoDB Repo"
+
+dnf install mongodb-org -y &>> $Logs
+validate $? "Installing MongoDB"
+
+systemctl enable mongod &>> $Logs
+validate $? "Enable MongoDB"
+
+systemctl start mongod &>> $Logs
+validate $? "Starting MongoDB"  #/c/Users/Admin/aws-devops/Git-Hub/Roboshop-Documentation
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf &>> $Logs
+validate $? "Validate remote access to  MongoDB"
+
+systemctl restart mongod &>> $Logs
+validate $? "Restarting MongoDB"
