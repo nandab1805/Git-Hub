@@ -49,7 +49,7 @@ validate $? "Un zipping the file"
 npm install &>> $Logs
 validate $? "Insatlling the dependencies" 
 #use absolute because catlogue.service exists there 
-cp /home/Git-Hub/Roboshop-Documentation/catalogue.service /etc/systemd/system/catalogue.service  &>> $Logs
+cp /home/centos/Git-Hub/Roboshop-Documentation/catalogue.service /etc/systemd/system/catalogue.service  &>> $Logs
 validate $? "Copy service file"
 
 systemctl daemon-reload &>> $Logs
@@ -59,7 +59,7 @@ validate $? "Enabling catalogue"
 systemctl start catalogue &>> $Logs
 validate $? "Starting catalogue" &>> 
 
-cp /home/Git-Hub/Roboshop-Documentation/mongo.repo /etc/yum.repos.d/mongo.repo &>> $Logs
+cp /home/centos/Git-Hub/Roboshop-Documentation/mongo.repo /etc/yum.repos.d/mongo.repo &>> $Logs
 validate $? "Copying Mongorepo" &>> 
 
 dnf install mongodb-org-shell -y &>> $Logs
