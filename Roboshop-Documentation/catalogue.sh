@@ -33,38 +33,37 @@ validate $? "Enabling NodeJS"
 dnf install nodejs -y &>> $Logs
 validate $? "Installing NodeJS"
 
-useradd roboshop
-validate $? "Creating roboshop User" &>> $Logs
+useradd roboshop &>> $Logs
+validate $? "Creating roboshop User" 
 
-mkdir /app
-validate $? "Creating App Directory" &>> $Logs
+mkdir /app &>> $Logs
+validate $? "Creating App Directory" 
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-validate $? "Downloading the application" &>> $Logs
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>> $Logs
+validate $? "Downloading the application"
+cd /app &>> $Logs
 
-cd /app 
+unzip /tmp/catalogue.zip &>> $Logs
+validate $? "Un zipping the file" 
 
-unzip /tmp/catalogue.zip
-validate $? "Un zipping the file" &>> $Logs
-
-npm install 
-validate $? "Insatlling the dependencies" &>> $Logs
+npm install &>> $Logs
+validate $? "Insatlling the dependencies" 
 #use absolute because catlogue.service exists there 
-cp /home/centos/Roboshop-Documentation/catalogue.service /etc/systemd/system/catalogue.service
-validate $? "Copy service file" &>> $Logs
+cp /home/Git-Hub/Roboshop-Documentation/catalogue.service /etc/systemd/system/catalogue.service  &>> $Logs
+validate $? "Copy service file"
 
-systemctl daemon-reload
-validate $? "Catalogue Deamon reload" &>> $Logs
-systemctl enable catalogue
-validate $? "Enabling catalogue" &>> $Logs
-systemctl start catalogue
-validate $? "Starting catalogue" &>> $Logs
+systemctl daemon-reload &>> $Logs
+validate $? "Catalogue Deamon reload" 
+systemctl enable catalogue &>> $Logs
+validate $? "Enabling catalogue" 
+systemctl start catalogue &>> $Logs
+validate $? "Starting catalogue" &>> 
 
-cp /home/centos/Roboshop-Documentation/mongo.repo /etc/yum.repos.d/mongo.repo
-validate $? "Copying Mongorepo" &>> $Logs
+cp /home/Git-Hub/Roboshop-Documentation/mongo.repo /etc/yum.repos.d/mongo.repo &>> $Logs
+validate $? "Copying Mongorepo" &>> 
 
-dnf install mongodb-org-shell -y
-validate $? "Install Mongodb Client" &>> $Logs
+dnf install mongodb-org-shell -y &>> $Logs
+validate $? "Install Mongodb Client" 
 
-mongo --host mongodb.nanda.cfd </app/schema/catalogue.js
-validate $? "Loading Catalogue data into Mongodb" &>> $Logs
+mongo --host mongodb.nanda.cfd </app/schema/catalogue.js &>> $Logs
+validate $? "Loading Catalogue data into Mongodb"
