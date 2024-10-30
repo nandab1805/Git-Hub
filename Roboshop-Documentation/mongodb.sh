@@ -36,7 +36,7 @@ validate $? "Enable MongoDB"
 systemctl start mongod &>> $Logs
 validate $? "Starting MongoDB"  #/c/Users/Admin/aws-devops/Git-Hub/Roboshop-Documentation
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf &>> $Logs
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $Logs
 validate $? "Validate remote access to  MongoDB"
 
 systemctl restart mongod &>> $Logs
