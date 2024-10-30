@@ -36,7 +36,7 @@ validate $? "Installing NodeJS"
 useradd roboshop &>> $Logs
 validate $? "Creating roboshop User" 
 
-mkdir /app &>> $Logs
+mkdir -p /app &>> $Logs
 validate $? "Creating App Directory" 
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>> $Logs
