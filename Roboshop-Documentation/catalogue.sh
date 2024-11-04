@@ -63,10 +63,10 @@ validate $? "Catalogue Deamon reload"
 systemctl enable catalogue &>> $Logs
 validate $? "Enabling catalogue" 
 systemctl start catalogue &>> $Logs
-validate $? "Starting catalogue" &>> 
+validate $? "Starting catalogue"
 
 cp /home/centos/Git-Hub/Roboshop-Documentation/mongo.repo /etc/yum.repos.d/mongo.repo &>> $Logs
-validate $? "Copying Mongorepo" &>> 
+validate $? "Copying Mongorepo"
 
 dnf install mongodb-org-shell -y &>> $Logs
 validate $? "Install Mongodb Client" 
