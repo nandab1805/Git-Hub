@@ -33,8 +33,14 @@ validate $? "Enabling NodeJS"
 dnf install nodejs -y &>> $Logs
 validate $? "Installing NodeJS"
 
-useradd roboshop &>> $Logs
-validate $? "Creating roboshop User" 
+id roboshop
+if [ $1 -ne 0 ]
+then
+    useradd roboshop 
+    validate $? "Creating roboshop User" 
+else
+    echo -e "Roboshop already exists $Y SKIPPING $N"
+fi
 
 mkdir -p /app &>> $Logs
 validate $? "Creating App Directory" 
@@ -43,7 +49,7 @@ curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zi
 validate $? "Downloading the application"
 cd /app &>> $Logs
 
-unzip /tmp/catalogue.zip &>> $Logs
+unzip -o /tmp/catalogue.zip &>> $Logs
 validate $? "Un zipping the file" 
 
 npm install &>> $Logs
