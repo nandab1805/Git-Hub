@@ -23,6 +23,7 @@ then
     exit 1
 else
     echo -e "You are root user"
+fi
 
 dnf module disable nodejs -y &>> $Logs
 validate $? "Disabling Current nodejs"
