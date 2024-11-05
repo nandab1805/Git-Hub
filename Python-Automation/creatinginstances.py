@@ -1,8 +1,8 @@
 import boto3
 
 # # Define your AWS credentials directly in the script (not recommended for security reasons)
-# aws_access_key_id = "your_aws_access_key_id"  # Replace with your actual access key ID
-# aws_secret_access_key = "your_aws_secret_access_key"  # Replace with your actual secret access key
+aws_access_key_id = "aws_access_key_id"  # Replace with your actual access key ID
+aws_secret_access_key = "aws_secret_access_key"  # Replace with your actual secret access key
 
 # Create a session using your AWS credentials
 ec2 = boto3.resource(
