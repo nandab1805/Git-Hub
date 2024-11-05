@@ -2,7 +2,7 @@
 Id=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
 Logs="/tmp/$0-$timestamp.log"
-exec &>$Logs #It can used where scripts run in background while running we can't see logs in the putty. to check logs cd /tmp/redis.sh<timestamp>
+# exec &>$Logs #It can used where scripts run in background while running we can't see logs in the putty. to check logs cd /tmp/redis.sh<timestamp>
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -26,17 +26,17 @@ else
     echo -e "You are root user"
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y 
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> $Logs
 
-dnf module enable redis:remi-6.2 -y
+dnf module enable redis:remi-6.2 -y &>> $Logs
 validate $? "Enabling Redis"
 
-dnf install redis -y 
+dnf install redis -y &>> $Logs
 validate $? "Installing Redis"
 
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
 
-systemctl enable redis 
+systemctl enable redis &>> $Logs
 validate $? "Enabling Redis"
-systemctl start redis 
+systemctl start redis &>> $Logs
 validate $? "Starting Redis"
