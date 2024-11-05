@@ -49,9 +49,9 @@ unzip /tmp/dispatch.zip &>> $Logs
 validate $? "Unzip dispatch"
 
 cd /app &>> $Logs
-go mod init dispatch
-go get 
-go build
+go mod init dispatch  &>> $Logs
+go get  &>> $Logs
+go build  &>> $Logs
 
 cp /home/centos/Git-Hub/Roboshop-Documentation/dispatch.service  /etc/systemd/system/dispatch.service &>> $Logs
 validate $? "Copying Dispatch Services"
