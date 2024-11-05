@@ -2,7 +2,7 @@
 Id=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
 Logs="/tmp/$0-$timestamp.log"
-exec &>$Logs
+exec &>$Logs #It can used where scripts run in background while running we can't see logs in the putty. to check logs cd /tmp/redis.sh<timestamp>
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -34,7 +34,7 @@ validate $? "Enabling Redis"
 dnf install redis -y 
 validate $? "Installing Redis"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
 
 systemctl enable redis 
 validate $? "Enabling Redis"
