@@ -8,7 +8,7 @@ while ifs= read line
 do
     usage=$(echo $line | awk '{print $6F}' | cut -d % -f1)
     parition=$(echo $line | awk '{print $6F}')
-    if [ $usage -gt $disk_threshold ]
+    if [ $usage -ge $disk_threshold ]
     then
         message+="High Disk usage on $parition: $usage"
     fi
