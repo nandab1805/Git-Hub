@@ -10,7 +10,7 @@ then
     echo -e "$r source directory: $file  does not exists. $n"
 fi
 
-while ifs=":" read-r username password user_id group_id user_fullname home_dir shell_path
+while ifs=":" read -r username password user_id group_id user_fullname home_dir shell_path
 do
     echo "username: $username"
     echo "user id: $user_id"
