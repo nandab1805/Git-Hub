@@ -6,7 +6,7 @@ then
     echo -e "$r source directory: $source_dir does not exists. $n"
 fi
 
-files_to_delete=$(find . -type f -mtime +14 -name "*.log")
+files_to_delete=$(find $source_dir -type f -mtime +14 -name "*.log")
 
 while ifs= read -r line
 do
