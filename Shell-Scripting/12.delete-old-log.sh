@@ -1,7 +1,7 @@
 #!/bin/bash
 source_dir=/tmp/shell.script-logs
 
-if [! -d $source_dir] #! Denotes oppoiste
+if [ ! -d $source_dir ] #! Denotes oppoiste
 then 
     echo -e "$r source directory: $source_dir does not exists. $n"
 fi
