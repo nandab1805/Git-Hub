@@ -7,7 +7,7 @@ message=""
 while IFS= read  line
 do
   usage=$(echo $line | awk '{print $6F}' | cut -d % -f1)
-  partition=$(echo "$line" | awk '{print $1}')
+  partition=$(echo "$line" | awk '{print $1F}')
   echo "$usage"
   echo "$partition"
   if [ $usage -ge $disk_threshold ];
