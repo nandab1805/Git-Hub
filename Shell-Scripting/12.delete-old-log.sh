@@ -1,5 +1,5 @@
 #!/bin/bash
-source_dir="/tmp/shell.script-logs"
+source_dir="/tmp/shellscript-logs"
 
 if [ ! -d $source_dir ] #! Denotes oppoiste
 then 
