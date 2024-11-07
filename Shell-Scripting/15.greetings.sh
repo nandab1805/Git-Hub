@@ -16,6 +16,16 @@ do
     case $opt in
         n) name="$optarg";;
         w) wishes="$optarg";;
-        h|*) usage; exit;;
+        \?) echo "invaild options: -"$optarg"" >&2; usage; exit;;
+        :) usage; exit;; 
+        h) usage; exit;;
     esac
 done
+
+if [ -z "$name" ] || [ -z "$wishes" ]; then
+    echo "Error: Both -n and -w are mandatory option."
+    usage
+    exit 1
+fi
+
+echo "Hello $name. $wishes. I have been learning Shell Script."
