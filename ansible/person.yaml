@@ -1,0 +1,23 @@
+- name: nandakiran
+  dob: "18-05-2000"
+  address:
+    address-line1: vivek street
+    address-line2: sanath nagar
+    city: HYD
+  email: nandakiran1805@gmail.com
+
+- name: hithesh
+  dob: "18-05-2000"
+  address:
+    address-line1: vivek street
+    address-line2: sanath nagar
+    city: HYD
+  email: nandakiran1805@gmail.com
+
+- name: goutham
+  dob: "18-05-2000"
+  address:
+    address-line1: vivek street
+    address-line2: sanath nagar
+    city: HYD
+  email: nandakiran1805@gmail.com
