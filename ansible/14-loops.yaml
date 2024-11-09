@@ -6,7 +6,7 @@
       name: "{{item}}" #item is a default keyword
       state: present
     loop:
-    - git
-    - mysql
-    - postfix
+      - git
+      - mysql
+      - postfix
     
