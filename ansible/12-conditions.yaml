@@ -7,5 +7,5 @@
     ignore_errors: true # ansible will not get exist even it got error 
 
   - name: print variable value
-    ansible.builtin.command:
+    ansible.builtin.debug:
       msg: "User otput is: {{user}}"
