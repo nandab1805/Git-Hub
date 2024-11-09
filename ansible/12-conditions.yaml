@@ -5,6 +5,6 @@
     ansible.builtin.command:
     register: user #user is variable name
 
-- name: print variable value
-  ansible.builtin.command:
-    msg: "User otput is {{user}}"
+  - name: print variable value
+    ansible.builtin.command:
+      msg: "User otput is {{user}}"
