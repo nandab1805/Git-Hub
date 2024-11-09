@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
   - name: print persons
-    ansible.builtin.debug:
+    ansible.builtin.package:
       name: "{{item}}" #item is a default keyword
       state: present
     loop:
