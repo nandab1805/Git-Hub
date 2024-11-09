@@ -1,0 +1,10 @@
+- name: variables from play level #Name can be given anything
+  hosts: loacalhost
+  vars:
+    Course: "Devops"
+    Trainer: "Sivakumar"
+    Duration: "110HRS"
+  tasks:
+  - name: check variables
+    ansible.builtin.debug:
+      msg: "Hi, I am learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
