@@ -1,8 +1,8 @@
-- name: Conditions
+- name: conditions
   hosts: localhost
   tasks: 
   - name: check roboshop user exists or not
-    ansible.builtin.command:
+    ansible.builtin.command: id roboshop
     register: user #user is variable name
     ignore_errors: true # ansible will not get exist even it got error 
 
