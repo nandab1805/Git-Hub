@@ -2,7 +2,7 @@
   hosts: localhost
   become: yes
   tasks:
-  - name: print persons
+  - name: installing packages
     ansible.builtin.package:
       name: "{{item}}" #item is a default keyword
       state: present
