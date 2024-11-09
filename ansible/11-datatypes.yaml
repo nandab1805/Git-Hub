@@ -15,16 +15,16 @@
   tasks:
   - name: print key value pair
     ansible.builtin.debug:
-    msg: "name: {{Name}}"
+      msg: "name: {{Name}}"
   
   - name: print key value pair"
     ansible.builtin.debug:
-    msg: "skills: {{SKILLS}}"
+      msg: "skills: {{SKILLS}}"
 
   - name: print key value pair"
     ansible.builtin.debug:
-    msg: "experience: {{Experience}}"
+      msg: "experience: {{Experience}}"
 
   - name: print key value pair"
     ansible.builtin.debug:
-    msg: "Trainer: {{Trainer}}"
+      msg: "Trainer: {{Trainer}}"
