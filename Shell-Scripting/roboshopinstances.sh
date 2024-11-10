@@ -1,18 +1,19 @@
 #!/bin/bash
 
-AMI=ami-0b4f379183e5706b9
-SG_ID=sg-03e57915a15c7d452
+AMI=ami-0f3c7d07486cad139 #this keeps on changing
+SG_ID=sg-03e57915a15c7d452 #replace with your SG ID
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
+# ZONE_ID=Z104317737D96UJVA7NEF # replace your zone ID
+# DOMAIN_NAME="daws76s.online"
 
 for i in "${INSTANCES[@]}"
 do
-    echo "instance is: $i"
-    if [ "$i" == "mongodb" ] || [ "$i" == "mysql" ] || [ "$i" == "shipping" ]
+    if [ $i == "mongodb" ] || [ $i == "mysql" ] || [ $i == "shipping" ]
     then
-        INSTANCES_type="t3.small"
+        INSTANCE_TYPE="t3.small"
     else
-        INSTANCES_type="t2.micro"
+        INSTANCE_TYPE="t2.micro"
     fi
-    echo "Instance type: $INSTANCES_type"  # Debugging line to ensure it's set correctly
-    aws ec2 run-instances --image-id $AMI --instance-type $INSTANCES_type --security-group-ids $SG_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
-done
+
+    IP_ADDRESS=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE --security-group-ids sg-087e7afb3a936fce7 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
+    echo "$i: $IP_ADDRESS"
