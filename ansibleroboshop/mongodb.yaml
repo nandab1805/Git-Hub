@@ -23,12 +23,12 @@
       path: /etc/mongod.conf
       regexp: '127.0.0.0'
       replace: '0.0.0.0'
-
-  - name: Restart
+  - name: restart and enable mongodb
     ansible.builtin.service:
       name: mongod
       state: restarted
       enabled: yes
+
 
 
 
