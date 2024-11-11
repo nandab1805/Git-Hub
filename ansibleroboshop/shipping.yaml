@@ -58,9 +58,12 @@
       name: mysql
       state: present
 
-  - name: check cities schema exists or not
-    ansible.builtin.command:  mysql -h mysql.daws76s.online -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
+  - name: Check if 'cities' schema exists
+    ansible.builtin.command: >
+      mysql -h <MySQL_Server_IP> -uroot -p{{ mysql_password }} -sN -e
+      "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
     register: schema
+
 
   - name: print output
     ansible.builtin.debug:
