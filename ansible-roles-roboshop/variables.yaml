@@ -1,1 +1,2 @@
 MONGODB_HOST: mongodb.nanda.cfd
+REDIS_HOST: redis.nanda.cfd
