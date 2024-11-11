@@ -1,14 +1,14 @@
-- name: Copy catalogue repo
+- name: "Copy {{component}} repo"
   ansible.builtin.copy:
-    src: catalogue.service
-    dest: /etc/systemd/system/catalogue.service
+    src: "{{component}}.service"
+    dest: "/etc/systemd/system/{{component}}.service"
 
 - name: daemon reload and start
   ansible.builtin.service:
     daemon_reload: true
 
-- name: start and enable catalogue
+- name: "start and enable {{component}}"
   ansible.builtin.service:
-    name: catalogue
+    name: "{{component}}"
     state: restarted
     enabled: yes
