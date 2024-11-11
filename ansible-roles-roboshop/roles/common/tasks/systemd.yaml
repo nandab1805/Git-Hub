@@ -1,0 +1,4 @@
+  - name: Copy catalogue repo
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
