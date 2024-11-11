@@ -1,2 +1,10 @@
 MONGODB_HOST: mongodb.nanda.cfd
 REDIS_HOST: redis.nanda.cfd
+CATALOGUE_HOST: catalogue.nanda.cfd
+MYSQL_HOST: mysql.nanda.cfd
+RABBITMQ_HOST: rabbitmq.nanda.cfd
+USER_HOST: user.nanda.cfd
+CART_HOST: cart.nanda.cfd
+SHIPPING_HOST: shipping.nanda.cfd
+PAYMENT_HOST: payment.nanda.cfd
+DISPATCH_HOST: dispatch.nanda.cfd
