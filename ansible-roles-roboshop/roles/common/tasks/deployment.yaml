@@ -7,6 +7,7 @@
   tags:
   - deployment
   ansible.builtin.file:
-    path: "/app/"
+    path: /app
     state: absent
-    force: yes
+    # force: yes
+    # recurse: yes
