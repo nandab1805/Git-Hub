@@ -15,3 +15,5 @@
       msg: "Hello Aws"
     tags:
     - aws
+
+# To run particular tasks we use tags
