@@ -4,4 +4,4 @@
     - variables.yaml
   become: yes
   roles: 
-  - "{{component}}"
+    - "{{component}}"
