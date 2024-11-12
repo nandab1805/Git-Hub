@@ -6,9 +6,9 @@
 
   - name: print message
     ansible.builtin.debug:
-    msg: "Hello DevOps"
-  tags:
-  - devops
+      msg: "Hello DevOps"
+    tags:
+    - devops
 
   - name: print message
     ansible.builtin.debug:
